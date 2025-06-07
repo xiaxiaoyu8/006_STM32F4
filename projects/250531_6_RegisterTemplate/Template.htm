@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Template.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Template.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Sun Jun 01 01:25:22 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Sat Jun 07 18:23:11 2025
 <BR><P>
 <H3>Maximum Stack Usage =          0 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -475,7 +475,7 @@ Global Symbols
 
 <P><STRONG><a name="[6c]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
 
-<P><STRONG><a name="[64]"></a>LEDS_OnlyLight</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, main.o(i.LEDS_OnlyLight))
+<P><STRONG><a name="[63]"></a>LEDS_OnlyLight</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, main.o(i.LEDS_OnlyLight))
 <BR><BR>[Called By]<UL><LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -492,14 +492,14 @@ Global Symbols
 
 <P><STRONG><a name="[6f]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
 
-<P><STRONG><a name="[63]"></a>delay</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, main.o(i.delay))
+<P><STRONG><a name="[64]"></a>delay_us</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, main.o(i.delay_us))
 <BR><BR>[Called By]<UL><LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[5c]"></a>main</STRONG> (Thumb, 92 bytes, Stack size 0 bytes, main.o(i.main))
-<BR><BR>[Calls]<UL><LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay
+<P><STRONG><a name="[5c]"></a>main</STRONG> (Thumb, 54 bytes, Stack size 0 bytes, main.o(i.main))
+<BR><BR>[Calls]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;delay_us
 <LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LEDS_TurnOffAll
-<LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LEDS_OnlyLight
+<LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LEDS_OnlyLight
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
 </UL><P>
