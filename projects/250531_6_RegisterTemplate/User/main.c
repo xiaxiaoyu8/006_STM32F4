@@ -84,15 +84,11 @@ void LEDS_B_OnlyLight(void)
 *******************************************************************************/
 int main()
 {
-	
-	/*
-	F9  - R
-	F10 - G
-	F11 - B
-	*/
-	RCC_AHB1ENR |= 1<<5;
-	GPIOF_MODER = (1<<(2*9)) | (1<<(2*10)) | (1<<(2*11));
-	
+	/*	F9  - R
+		F10 - G
+		F11 - B	*/
+	RCC_AHB1ENR |= 1<<5;//使能GPIOF时钟
+	GPIOF_MODER = (1<<(2*9)) | (1<<(2*10)) | (1<<(2*11));//输出模式
 	LEDS_TurnOffAll();
 	int i;
 	while(1)
@@ -100,7 +96,7 @@ int main()
 		for(i=0;i<3;i++)
 		{
 			LEDS_OnlyLight(i);
-			delay_us(5000000);
+			delay_us(5000000);//延时5S
 			LEDS_TurnOffAll();
 		}
 	}
