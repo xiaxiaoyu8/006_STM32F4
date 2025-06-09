@@ -13,8 +13,7 @@
 	Key2 - PE2  02
 	Key1 - PE3	01
 	Key0 - PE4  00
-	
-	WK_up- PA0  04 按下发送高电平
+	WK_up- PA0  04 按下发送高电平,否则为低电平
 	*/
 	#define KEY_PORT_RCC	RCC_AHB1Periph_GPIOE
 	#define KEY_PORT		GPIOE
