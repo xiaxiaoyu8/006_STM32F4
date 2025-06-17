@@ -36,3 +36,4 @@
 .\obj\led.o: .\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_dcmi.h
 .\obj\led.o: .\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_fsmc.h
 .\obj\led.o: PeripheralDrivers\delay.h
+.\obj\led.o: PeripheralDrivers\system.h

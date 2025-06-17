@@ -8,6 +8,10 @@
 	#define Pin_G			GPIO_Pin_10
 	#define Pin_B			GPIO_Pin_11
 	
+	#define R			PFout(9)
+	#define G			PFout(10)
+	#define B			PFout(11)
+	
 	void LED_Init(void);
 	void LED_OnlyLight_R(void);
 	void LED_OnlyLight_G(void);
