@@ -34,7 +34,7 @@ int main()//STM32F40_41xxx,USE_STDPERIPH_DRIVER
 //			LED_OnlyLight_G();
 //		else if(Key_scan() == 2)
 //			LED_OnlyLight_B();
-		
+            
 		if(Key0_Click() == 1)
 		{
 			freq+=100;
