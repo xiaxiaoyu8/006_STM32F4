@@ -1,0 +1,41 @@
+- Project: Smart_Weather_Station (项目名称应具体，而非"template")
+  - Target 1
+    
+    - 📂 Application (应用层)
+      |-- 📄 main.c           (主程序入口)
+      |-- 📄 stm32f4xx_it.c     (中断服务函数)
+      |-- 📄 stm32f4xx_it.h     (中断服务函数头文件)
+      
+    - 📂 BSP (板级支持包)
+      |-- 📄 bsp.c            (BSP初始化函数)
+      |-- 📄 bsp.h            (BSP头文件，包含所有bsp模块)
+      |-- 📄 bsp_led.c
+      |-- 📄 bsp_led.h
+      |-- 📄 bsp_key.c
+      |-- 📄 bsp_key.h
+      |-- 📄 bsp_beep.c
+      |-- 📄 bsp_beep.h
+      |-- 📄 bsp_delay.c      (如果delay是基于Systick或特定定时器)
+      |-- 📄 bsp_delay.h
+      
+    - 📂 Drivers (MCU驱动库)
+      |-- 📂 CMSIS             (Cortex微控制器软件接口标准)
+      |   |-- 📄 system_stm32f4xx.c
+      |
+      |-- 📂 STM32F4xx_StdPeriph_Driver (ST标准外设库)
+          |-- 📂 inc          (存放所有 .h 文件)
+          |   |-- stm32f4xx_rcc.h
+          |   |-- stm32f4xx_gpio.h
+          |   |-- ...
+          |-- 📂 src          (存放所有 .c 文件)
+              |-- stm32f4xx_rcc.c
+              |-- stm32f4xx_gpio.c
+              |-- stm32f4xx_syscfg.c
+              |-- misc.c
+
+    - 📂 Startup (启动文件)
+      |-- 📄 startup_stm32f40_41xxx.s
+
+    - 📂 Middlewares (中间件 - 为未来预留)
+      |-- 📂 FreeRTOS
+      |-- 📂 FatFs
