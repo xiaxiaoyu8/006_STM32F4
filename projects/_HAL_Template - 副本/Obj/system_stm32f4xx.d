@@ -1,0 +1,10 @@
+.\obj\system_stm32f4xx.o: User\system_stm32f4xx.c
+.\obj\system_stm32f4xx.o: .\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
+.\obj\system_stm32f4xx.o: .\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f407xx.h
+.\obj\system_stm32f4xx.o: .\Drivers\CMSIS\Include\core_cm4.h
+.\obj\system_stm32f4xx.o: C:\_zhangyidaFiles\C03_Applications\Keil_v5\APPFiles\ARM\ARMCC\Bin\..\include\stdint.h
+.\obj\system_stm32f4xx.o: .\Drivers\CMSIS\Include\cmsis_version.h
+.\obj\system_stm32f4xx.o: .\Drivers\CMSIS\Include\cmsis_compiler.h
+.\obj\system_stm32f4xx.o: .\Drivers\CMSIS\Include\cmsis_armcc.h
+.\obj\system_stm32f4xx.o: .\Drivers\CMSIS\Include\mpu_armv7.h
+.\obj\system_stm32f4xx.o: .\Drivers\CMSIS\Device\ST\STM32F4xx\Include\system_stm32f4xx.h

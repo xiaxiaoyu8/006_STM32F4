@@ -341,7 +341,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F40_41xxx,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>.\Drivers\CMSIS;.\Middleware;.\User</IncludePath>
+              <IncludePath>.\Drivers\CMSIS;.\Middleware;.\User;.\Drivers\BSP;.\Drivers\SYS</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -429,6 +429,24 @@
               <FilePath>.\Drivers\CMSIS\system_stm32f4xx.h</FilePath>
             </File>
           </Files>
+        </Group>
+        <Group>
+          <GroupName>Drivers/SYS</GroupName>
+          <Files>
+            <File>
+              <FileName>system.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Drivers\SYS\system.c</FilePath>
+            </File>
+            <File>
+              <FileName>system.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Drivers\SYS\system.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Drivers/BSP</GroupName>
         </Group>
         <Group>
           <GroupName>User</GroupName>
