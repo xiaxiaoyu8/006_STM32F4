@@ -39,13 +39,15 @@ int main()//STM32F40_41xxx,USE_STDPERIPH_DRIVER
 		{
 			freq+=100;
 			// LED_OnlyLight_R();
-			R = 0;
+			R = !R;
 		}
 		else if(Key1_Click() == 1)
-			G = 0;
+			G = !G;
 		else if(Key2_Click() == 1)
-			B = 0;
+			B = !B;
 		else if(Key4_Click() == 1)
+            
+        
 		{
 			LED_Light_R();
 			LED_Light_G();

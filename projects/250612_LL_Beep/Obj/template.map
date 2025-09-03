@@ -8,9 +8,13 @@ Section Cross References
     main.o(i.main) refers to key.o(i.Key_Init) for Key_Init
     main.o(i.main) refers to delay.o(i.Delay_Init) for Delay_Init
     main.o(i.main) refers to beep.o(i.Beep_Init) for Beep_Init
-    main.o(i.main) refers to key.o(i.Key_scan) for Key_scan
-    main.o(i.main) refers to led.o(i.LED_OnlyLight_R) for LED_OnlyLight_R
-    main.o(i.main) refers to led.o(i.LED_OnlyLight_G) for LED_OnlyLight_G
+    main.o(i.main) refers to key.o(i.Key0_Click) for Key0_Click
+    main.o(i.main) refers to key.o(i.Key1_Click) for Key1_Click
+    main.o(i.main) refers to key.o(i.Key2_Click) for Key2_Click
+    main.o(i.main) refers to key.o(i.Key4_Click) for Key4_Click
+    main.o(i.main) refers to led.o(i.LED_Light_R) for LED_Light_R
+    main.o(i.main) refers to led.o(i.LED_Light_G) for LED_Light_G
+    main.o(i.main) refers to led.o(i.LED_Light_B) for LED_Light_B
     startup_stm32f40_41xxx.o(RESET) refers to startup_stm32f40_41xxx.o(STACK) for __initial_sp
     startup_stm32f40_41xxx.o(RESET) refers to startup_stm32f40_41xxx.o(.text) for Reset_Handler
     startup_stm32f40_41xxx.o(RESET) refers to stm32f4xx_it.o(i.NMI_Handler) for NMI_Handler
@@ -198,22 +202,18 @@ Removing Unused input sections from the image.
     Removing key.o(.rev16_text), (4 bytes).
     Removing key.o(.revsh_text), (4 bytes).
     Removing key.o(.rrx_text), (6 bytes).
-    Removing key.o(i.Key0_Click), (72 bytes).
-    Removing key.o(i.Key1_Click), (72 bytes).
-    Removing key.o(i.Key2_Click), (72 bytes).
-    Removing key.o(i.Key4_Click), (72 bytes).
+    Removing key.o(i.Key_scan), (148 bytes).
     Removing led.o(.rev16_text), (4 bytes).
     Removing led.o(.revsh_text), (4 bytes).
     Removing led.o(.rrx_text), (6 bytes).
-    Removing led.o(i.LED_Light_B), (20 bytes).
-    Removing led.o(i.LED_Light_G), (20 bytes).
-    Removing led.o(i.LED_Light_R), (20 bytes).
     Removing led.o(i.LED_OnlyLight_B), (24 bytes).
+    Removing led.o(i.LED_OnlyLight_G), (24 bytes).
+    Removing led.o(i.LED_OnlyLight_R), (24 bytes).
     Removing system.o(.rev16_text), (4 bytes).
     Removing system.o(.revsh_text), (4 bytes).
     Removing system.o(.rrx_text), (6 bytes).
 
-125 unused section(s) (total 3932 bytes) removed from the image.
+121 unused section(s) (total 3780 bytes) removed from the image.
 
 ==============================================================================
 
@@ -223,21 +223,21 @@ Image Symbol Table
 
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry12b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry12a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
     Libraries\CMSIS\startup_stm32f40_41xxx.s 0x00000000   Number         0  startup_stm32f40_41xxx.o ABSOLUTE
     Libraries\CMSIS\system_stm32f4xx.c       0x00000000   Number         0  system_stm32f4xx.o ABSOLUTE
     Libraries\STM32F4xx_StdPeriph_Driver\src\misc.c 0x00000000   Number         0  misc.o ABSOLUTE
@@ -290,27 +290,31 @@ Image Symbol Table
     i.GPIO_ResetBits                         0x080002e2   Section        0  stm32f4xx_gpio.o(i.GPIO_ResetBits)
     i.GPIO_SetBits                           0x080002e6   Section        0  stm32f4xx_gpio.o(i.GPIO_SetBits)
     i.HardFault_Handler                      0x080002ea   Section        0  stm32f4xx_it.o(i.HardFault_Handler)
-    i.Key_Init                               0x080002f0   Section        0  key.o(i.Key_Init)
-    i.Key_scan                               0x0800033c   Section        0  key.o(i.Key_scan)
-    i.LED_Init                               0x080003d0   Section        0  led.o(i.LED_Init)
-    i.LED_OnlyLight_G                        0x08000404   Section        0  led.o(i.LED_OnlyLight_G)
-    i.LED_OnlyLight_R                        0x0800041c   Section        0  led.o(i.LED_OnlyLight_R)
-    i.LED_TurnOff                            0x08000434   Section        0  led.o(i.LED_TurnOff)
-    i.MemManage_Handler                      0x0800045c   Section        0  stm32f4xx_it.o(i.MemManage_Handler)
-    i.NMI_Handler                            0x08000460   Section        0  stm32f4xx_it.o(i.NMI_Handler)
-    i.PendSV_Handler                         0x08000462   Section        0  stm32f4xx_it.o(i.PendSV_Handler)
-    i.RCC_AHB1PeriphClockCmd                 0x08000464   Section        0  stm32f4xx_rcc.o(i.RCC_AHB1PeriphClockCmd)
-    i.SVC_Handler                            0x08000484   Section        0  stm32f4xx_it.o(i.SVC_Handler)
-    i.SetSysClock                            0x08000488   Section        0  system_stm32f4xx.o(i.SetSysClock)
-    SetSysClock                              0x08000489   Thumb Code   220  system_stm32f4xx.o(i.SetSysClock)
-    i.SysTick_CLKSourceConfig                0x08000574   Section        0  misc.o(i.SysTick_CLKSourceConfig)
-    i.SysTick_Handler                        0x0800059c   Section        0  stm32f4xx_it.o(i.SysTick_Handler)
-    i.SystemInit                             0x080005a0   Section        0  system_stm32f4xx.o(i.SystemInit)
-    i.UsageFault_Handler                     0x08000608   Section        0  stm32f4xx_it.o(i.UsageFault_Handler)
-    i.__scatterload_copy                     0x0800060c   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x0800061a   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x0800061c   Section       14  handlers.o(i.__scatterload_zeroinit)
-    i.main                                   0x0800062a   Section        0  main.o(i.main)
+    i.Key0_Click                             0x080002f0   Section        0  key.o(i.Key0_Click)
+    i.Key1_Click                             0x08000338   Section        0  key.o(i.Key1_Click)
+    i.Key2_Click                             0x08000380   Section        0  key.o(i.Key2_Click)
+    i.Key4_Click                             0x080003c8   Section        0  key.o(i.Key4_Click)
+    i.Key_Init                               0x08000410   Section        0  key.o(i.Key_Init)
+    i.LED_Init                               0x0800045c   Section        0  led.o(i.LED_Init)
+    i.LED_Light_B                            0x08000490   Section        0  led.o(i.LED_Light_B)
+    i.LED_Light_G                            0x080004a4   Section        0  led.o(i.LED_Light_G)
+    i.LED_Light_R                            0x080004b8   Section        0  led.o(i.LED_Light_R)
+    i.LED_TurnOff                            0x080004cc   Section        0  led.o(i.LED_TurnOff)
+    i.MemManage_Handler                      0x080004f4   Section        0  stm32f4xx_it.o(i.MemManage_Handler)
+    i.NMI_Handler                            0x080004f8   Section        0  stm32f4xx_it.o(i.NMI_Handler)
+    i.PendSV_Handler                         0x080004fa   Section        0  stm32f4xx_it.o(i.PendSV_Handler)
+    i.RCC_AHB1PeriphClockCmd                 0x080004fc   Section        0  stm32f4xx_rcc.o(i.RCC_AHB1PeriphClockCmd)
+    i.SVC_Handler                            0x0800051c   Section        0  stm32f4xx_it.o(i.SVC_Handler)
+    i.SetSysClock                            0x08000520   Section        0  system_stm32f4xx.o(i.SetSysClock)
+    SetSysClock                              0x08000521   Thumb Code   220  system_stm32f4xx.o(i.SetSysClock)
+    i.SysTick_CLKSourceConfig                0x0800060c   Section        0  misc.o(i.SysTick_CLKSourceConfig)
+    i.SysTick_Handler                        0x08000634   Section        0  stm32f4xx_it.o(i.SysTick_Handler)
+    i.SystemInit                             0x08000638   Section        0  system_stm32f4xx.o(i.SystemInit)
+    i.UsageFault_Handler                     0x080006a0   Section        0  stm32f4xx_it.o(i.UsageFault_Handler)
+    i.__scatterload_copy                     0x080006a4   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x080006b2   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x080006b4   Section       14  handlers.o(i.__scatterload_zeroinit)
+    i.main                                   0x080006c4   Section        0  main.o(i.main)
     .data                                    0x20000000   Section        1  delay.o(.data)
     fac_us                                   0x20000000   Data           1  delay.o(.data)
     .data                                    0x20000001   Section        8  key.o(.data)
@@ -435,27 +439,31 @@ Image Symbol Table
     GPIO_ResetBits                           0x080002e3   Thumb Code     4  stm32f4xx_gpio.o(i.GPIO_ResetBits)
     GPIO_SetBits                             0x080002e7   Thumb Code     4  stm32f4xx_gpio.o(i.GPIO_SetBits)
     HardFault_Handler                        0x080002eb   Thumb Code     4  stm32f4xx_it.o(i.HardFault_Handler)
-    Key_Init                                 0x080002f1   Thumb Code    68  key.o(i.Key_Init)
-    Key_scan                                 0x0800033d   Thumb Code   136  key.o(i.Key_scan)
-    LED_Init                                 0x080003d1   Thumb Code    46  led.o(i.LED_Init)
-    LED_OnlyLight_G                          0x08000405   Thumb Code    18  led.o(i.LED_OnlyLight_G)
-    LED_OnlyLight_R                          0x0800041d   Thumb Code    18  led.o(i.LED_OnlyLight_R)
-    LED_TurnOff                              0x08000435   Thumb Code    34  led.o(i.LED_TurnOff)
-    MemManage_Handler                        0x0800045d   Thumb Code     4  stm32f4xx_it.o(i.MemManage_Handler)
-    NMI_Handler                              0x08000461   Thumb Code     2  stm32f4xx_it.o(i.NMI_Handler)
-    PendSV_Handler                           0x08000463   Thumb Code     2  stm32f4xx_it.o(i.PendSV_Handler)
-    RCC_AHB1PeriphClockCmd                   0x08000465   Thumb Code    26  stm32f4xx_rcc.o(i.RCC_AHB1PeriphClockCmd)
-    SVC_Handler                              0x08000485   Thumb Code     2  stm32f4xx_it.o(i.SVC_Handler)
-    SysTick_CLKSourceConfig                  0x08000575   Thumb Code    40  misc.o(i.SysTick_CLKSourceConfig)
-    SysTick_Handler                          0x0800059d   Thumb Code     2  stm32f4xx_it.o(i.SysTick_Handler)
-    SystemInit                               0x080005a1   Thumb Code    88  system_stm32f4xx.o(i.SystemInit)
-    UsageFault_Handler                       0x08000609   Thumb Code     4  stm32f4xx_it.o(i.UsageFault_Handler)
-    __scatterload_copy                       0x0800060d   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x0800061b   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x0800061d   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    main                                     0x0800062b   Thumb Code    74  main.o(i.main)
-    Region$$Table$$Base                      0x08000674   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08000694   Number         0  anon$$obj.o(Region$$Table)
+    Key0_Click                               0x080002f1   Thumb Code    60  key.o(i.Key0_Click)
+    Key1_Click                               0x08000339   Thumb Code    60  key.o(i.Key1_Click)
+    Key2_Click                               0x08000381   Thumb Code    60  key.o(i.Key2_Click)
+    Key4_Click                               0x080003c9   Thumb Code    60  key.o(i.Key4_Click)
+    Key_Init                                 0x08000411   Thumb Code    68  key.o(i.Key_Init)
+    LED_Init                                 0x0800045d   Thumb Code    46  led.o(i.LED_Init)
+    LED_Light_B                              0x08000491   Thumb Code    14  led.o(i.LED_Light_B)
+    LED_Light_G                              0x080004a5   Thumb Code    14  led.o(i.LED_Light_G)
+    LED_Light_R                              0x080004b9   Thumb Code    14  led.o(i.LED_Light_R)
+    LED_TurnOff                              0x080004cd   Thumb Code    34  led.o(i.LED_TurnOff)
+    MemManage_Handler                        0x080004f5   Thumb Code     4  stm32f4xx_it.o(i.MemManage_Handler)
+    NMI_Handler                              0x080004f9   Thumb Code     2  stm32f4xx_it.o(i.NMI_Handler)
+    PendSV_Handler                           0x080004fb   Thumb Code     2  stm32f4xx_it.o(i.PendSV_Handler)
+    RCC_AHB1PeriphClockCmd                   0x080004fd   Thumb Code    26  stm32f4xx_rcc.o(i.RCC_AHB1PeriphClockCmd)
+    SVC_Handler                              0x0800051d   Thumb Code     2  stm32f4xx_it.o(i.SVC_Handler)
+    SysTick_CLKSourceConfig                  0x0800060d   Thumb Code    40  misc.o(i.SysTick_CLKSourceConfig)
+    SysTick_Handler                          0x08000635   Thumb Code     2  stm32f4xx_it.o(i.SysTick_Handler)
+    SystemInit                               0x08000639   Thumb Code    88  system_stm32f4xx.o(i.SystemInit)
+    UsageFault_Handler                       0x080006a1   Thumb Code     4  stm32f4xx_it.o(i.UsageFault_Handler)
+    __scatterload_copy                       0x080006a5   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x080006b3   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x080006b5   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    main                                     0x080006c5   Thumb Code   144  main.o(i.main)
+    Region$$Table$$Base                      0x08000758   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08000778   Number         0  anon$$obj.o(Region$$Table)
     state                                    0x20000001   Data           4  key.o(.data)
     last_state                               0x20000005   Data           4  key.o(.data)
     __initial_sp                             0x20000410   Data           0  startup_stm32f40_41xxx.o(STACK)
@@ -468,9 +476,9 @@ Memory Map of the image
 
   Image Entry point : 0x08000189
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x000006a0, Max: 0x00100000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00000784, Max: 0x00100000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00000694, Max: 0x00100000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00000778, Max: 0x00100000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -498,38 +506,43 @@ Memory Map of the image
     0x080002e6   0x080002e6   0x00000004   Code   RO          307    i.GPIO_SetBits      stm32f4xx_gpio.o
     0x080002ea   0x080002ea   0x00000004   Code   RO          155    i.HardFault_Handler  stm32f4xx_it.o
     0x080002ee   0x080002ee   0x00000002   PAD
-    0x080002f0   0x080002f0   0x0000004c   Code   RO          933    i.Key_Init          key.o
-    0x0800033c   0x0800033c   0x00000094   Code   RO          934    i.Key_scan          key.o
-    0x080003d0   0x080003d0   0x00000034   Code   RO          989    i.LED_Init          led.o
-    0x08000404   0x08000404   0x00000018   Code   RO          994    i.LED_OnlyLight_G   led.o
-    0x0800041c   0x0800041c   0x00000018   Code   RO          995    i.LED_OnlyLight_R   led.o
-    0x08000434   0x08000434   0x00000028   Code   RO          996    i.LED_TurnOff       led.o
-    0x0800045c   0x0800045c   0x00000004   Code   RO          156    i.MemManage_Handler  stm32f4xx_it.o
-    0x08000460   0x08000460   0x00000002   Code   RO          157    i.NMI_Handler       stm32f4xx_it.o
-    0x08000462   0x08000462   0x00000002   Code   RO          158    i.PendSV_Handler    stm32f4xx_it.o
-    0x08000464   0x08000464   0x00000020   Code   RO          400    i.RCC_AHB1PeriphClockCmd  stm32f4xx_rcc.o
-    0x08000484   0x08000484   0x00000002   Code   RO          159    i.SVC_Handler       stm32f4xx_it.o
-    0x08000486   0x08000486   0x00000002   PAD
-    0x08000488   0x08000488   0x000000ec   Code   RO          235    i.SetSysClock       system_stm32f4xx.o
-    0x08000574   0x08000574   0x00000028   Code   RO          802    i.SysTick_CLKSourceConfig  misc.o
-    0x0800059c   0x0800059c   0x00000002   Code   RO          160    i.SysTick_Handler   stm32f4xx_it.o
-    0x0800059e   0x0800059e   0x00000002   PAD
-    0x080005a0   0x080005a0   0x00000068   Code   RO          237    i.SystemInit        system_stm32f4xx.o
-    0x08000608   0x08000608   0x00000004   Code   RO          161    i.UsageFault_Handler  stm32f4xx_it.o
-    0x0800060c   0x0800060c   0x0000000e   Code   RO         1099    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x0800061a   0x0800061a   0x00000002   Code   RO         1100    i.__scatterload_null  mc_w.l(handlers.o)
-    0x0800061c   0x0800061c   0x0000000e   Code   RO         1101    i.__scatterload_zeroinit  mc_w.l(handlers.o)
-    0x0800062a   0x0800062a   0x0000004a   Code   RO            4    i.main              main.o
-    0x08000674   0x08000674   0x00000020   Data   RO         1097    Region$$Table       anon$$obj.o
+    0x080002f0   0x080002f0   0x00000048   Code   RO          929    i.Key0_Click        key.o
+    0x08000338   0x08000338   0x00000048   Code   RO          930    i.Key1_Click        key.o
+    0x08000380   0x08000380   0x00000048   Code   RO          931    i.Key2_Click        key.o
+    0x080003c8   0x080003c8   0x00000048   Code   RO          932    i.Key4_Click        key.o
+    0x08000410   0x08000410   0x0000004c   Code   RO          933    i.Key_Init          key.o
+    0x0800045c   0x0800045c   0x00000034   Code   RO          989    i.LED_Init          led.o
+    0x08000490   0x08000490   0x00000014   Code   RO          990    i.LED_Light_B       led.o
+    0x080004a4   0x080004a4   0x00000014   Code   RO          991    i.LED_Light_G       led.o
+    0x080004b8   0x080004b8   0x00000014   Code   RO          992    i.LED_Light_R       led.o
+    0x080004cc   0x080004cc   0x00000028   Code   RO          996    i.LED_TurnOff       led.o
+    0x080004f4   0x080004f4   0x00000004   Code   RO          156    i.MemManage_Handler  stm32f4xx_it.o
+    0x080004f8   0x080004f8   0x00000002   Code   RO          157    i.NMI_Handler       stm32f4xx_it.o
+    0x080004fa   0x080004fa   0x00000002   Code   RO          158    i.PendSV_Handler    stm32f4xx_it.o
+    0x080004fc   0x080004fc   0x00000020   Code   RO          400    i.RCC_AHB1PeriphClockCmd  stm32f4xx_rcc.o
+    0x0800051c   0x0800051c   0x00000002   Code   RO          159    i.SVC_Handler       stm32f4xx_it.o
+    0x0800051e   0x0800051e   0x00000002   PAD
+    0x08000520   0x08000520   0x000000ec   Code   RO          235    i.SetSysClock       system_stm32f4xx.o
+    0x0800060c   0x0800060c   0x00000028   Code   RO          802    i.SysTick_CLKSourceConfig  misc.o
+    0x08000634   0x08000634   0x00000002   Code   RO          160    i.SysTick_Handler   stm32f4xx_it.o
+    0x08000636   0x08000636   0x00000002   PAD
+    0x08000638   0x08000638   0x00000068   Code   RO          237    i.SystemInit        system_stm32f4xx.o
+    0x080006a0   0x080006a0   0x00000004   Code   RO          161    i.UsageFault_Handler  stm32f4xx_it.o
+    0x080006a4   0x080006a4   0x0000000e   Code   RO         1099    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x080006b2   0x080006b2   0x00000002   Code   RO         1100    i.__scatterload_null  mc_w.l(handlers.o)
+    0x080006b4   0x080006b4   0x0000000e   Code   RO         1101    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x080006c2   0x080006c2   0x00000002   PAD
+    0x080006c4   0x080006c4   0x00000094   Code   RO            4    i.main              main.o
+    0x08000758   0x08000758   0x00000020   Data   RO         1097    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08000694, Size: 0x00000410, Max: 0x00020000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08000778, Size: 0x00000410, Max: 0x00020000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x08000694   0x00000001   Data   RW          886    .data               delay.o
-    0x20000001   0x08000695   0x00000008   Data   RW          935    .data               key.o
-    0x20000009   0x0800069d   0x00000007   PAD
+    0x20000000   0x08000778   0x00000001   Data   RW          886    .data               delay.o
+    0x20000001   0x08000779   0x00000008   Data   RW          935    .data               key.o
+    0x20000009   0x08000781   0x00000007   PAD
     0x20000010        -       0x00000400   Zero   RW          225    STACK               startup_stm32f40_41xxx.o
 
 
@@ -542,9 +555,9 @@ Image component sizes
 
         56          4          0          0          0        548   beep.o
         24          6          0          1          0        693   delay.o
-       224         20          0          8          0       1877   key.o
-       140         24          0          0          0       2057   led.o
-        74          0          0          0          0     246055   main.o
+       364         56          0          8          0       3558   key.o
+       152         30          0          0          0       2527   led.o
+       148          4          0          0          0     246075   main.o
         40          0          0          0          0        602   misc.o
         36          8        392          0       1024        860   startup_stm32f40_41xxx.o
        170          0          0          0          0       3296   stm32f4xx_gpio.o
@@ -553,7 +566,7 @@ Image component sizes
        340         32          0          0          0     235569   system_stm32f4xx.o
 
     ----------------------------------------------------------------------
-      1170        100        424         12       1028     496416   Object Totals
+      1396        146        424         12       1028     498587   Object Totals
          0          0         32          0          0          0   (incl. Generated)
          8          0          0          3          4          0   (incl. Padding)
 
@@ -574,8 +587,8 @@ Image component sizes
         36          8          0          0          0         68   init.o
 
     ----------------------------------------------------------------------
-        90         16          0          0          0         68   Library Totals
-         0          0          0          0          0          0   (incl. Padding)
+        92         16          0          0          0         68   Library Totals
+         2          0          0          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -584,7 +597,7 @@ Image component sizes
         90         16          0          0          0         68   mc_w.l
 
     ----------------------------------------------------------------------
-        90         16          0          0          0         68   Library Totals
+        92         16          0          0          0         68   Library Totals
 
     ----------------------------------------------------------------------
 
@@ -593,15 +606,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      1260        116        424         12       1028     494588   Grand Totals
-      1260        116        424         12       1028     494588   ELF Image Totals
-      1260        116        424         12          0          0   ROM Totals
+      1488        162        424         12       1028     496359   Grand Totals
+      1488        162        424         12       1028     496359   ELF Image Totals
+      1488        162        424         12          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 1684 (   1.64kB)
+    Total RO  Size (Code + RO Data)                 1912 (   1.87kB)
     Total RW  Size (RW Data + ZI Data)              1040 (   1.02kB)
-    Total ROM Size (Code + RO Data + RW Data)       1696 (   1.66kB)
+    Total ROM Size (Code + RO Data + RW Data)       1924 (   1.88kB)
 
 ==============================================================================
 
