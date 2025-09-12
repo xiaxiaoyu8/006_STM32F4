@@ -12,7 +12,7 @@
 
 - 时钟源灵活：SysTick的时钟源可以选择 AHB总线时钟（HCLK） 或是 AHB总线时钟的8分频（HCLK/8）。
 
-![systick定时器操作](images/image-19.png)
+![systick定时器操作](image-19.png)
 
 # SysTick的四个核心寄存器：
 ## SysTick->CTRL (控制和状态寄存器)：

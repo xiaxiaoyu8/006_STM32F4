@@ -3,13 +3,13 @@ Register_Template 包含创建寄存器模板的必需文件和代码,，双0。
 
 
 ================  创建寄存器模板工程重点说明 ======================
-![主编程页面](images/image-40.png)
+![主编程页面](image-40.png)
 
 C/C++-Define:
 STM32F40_41xxx,USE_STDPERIPH_DRIVER
-![C/C++选项卡](images/image-41.png)
+![C/C++选项卡](image-41.png)
 
-!["品"字型工具](images/image-42.png)
+!["品"字型工具](image-42.png)
 
 扳手工具: 字体选择UTF-8
 
@@ -18,7 +18,7 @@ STM32F40_41xxx,USE_STDPERIPH_DRIVER
 * main.c仅包含的头文件：#include "stm32f4xx.h"
 * 
 */
-![主目录](images/image-39.png)
+![主目录](image-39.png)
 ├─ DebugConfig/
 │   └──↳ Target_1_STM32F407ZGTx.dbgconf
 │       └── 调试配置文件，用于配置STM32F407ZGTx微控制器的调试参数，包含调试器连接设置、内存映射和断点配置等信息。
