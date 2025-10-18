@@ -4,8 +4,8 @@
     #include "system.h"
 
     // === Òý½Å¶¨Òå ===
-    #define OLED_SCL_Pin        GPIO_Pin_7
-    #define OLED_SDA_Pin        GPIO_Pin_8 
+    #define OLED_SCL_Pin        GPIO_Pin_8
+    #define OLED_SDA_Pin        GPIO_Pin_9
     #define OLED_GPIO_PORT      GPIOB
     #define OLED_RCC_AHB1       RCC_AHB1Periph_GPIOB
 

@@ -21,7 +21,7 @@ Target DLL:      CMSIS_AGDI.dll V1.33.15.0
 Dialog DLL:      TCM.DLL V1.56.4.0
  
 <h2>Project:</h2>
-C:\Users\zhangyida\Desktop\006_STM32F4\projects\250624_OLED\Template.uvprojx
+C:\_zhangyidaFiles\C02_Study\207_Projects\Project250515_nodejs\006_STM32F4\projects\250624_OLED\Template.uvprojx
 Project File Date:  06/24/2025
 
 <h2>Output:</h2>
@@ -29,26 +29,11 @@ Project File Date:  06/24/2025
 Rebuild target 'Target 1'
 Note: source file '.\Drivers\SYSTEM\delay.c' - object file renamed from '.\Obj\delay.o' to '.\Obj\delay_1.o'.
 assembling startup_stm32f407xx.s...
-Drivers/BSP/Delay.c(1): error: 'stm32f10x.h' file not found
-#include "stm32f10x.h"
-         ^~~~~~~~~~~~~
-1 error generated.
-compiling Delay.c...
-Drivers/SYSTEM/delay.c(1): error: './SYSTEM/sys.h' file not found
-#include "./SYSTEM/sys.h"
-         ^~~~~~~~~~~~~~~~
-1 error generated.
-compiling delay.c...
 Drivers/SYSTEM/sys.c(1): error: './SYSTEM/sys.h' file not found
 #include "./SYSTEM/sys.h"
          ^~~~~~~~~~~~~~~~
 1 error generated.
 compiling sys.c...
-Drivers/SYSTEM/usart.c(1): error: './SYSTEM/sys.h' file not found
-#include "./SYSTEM/sys.h"
-         ^~~~~~~~~~~~~~~~
-1 error generated.
-compiling usart.c...
 Drivers/BSP/led.c(1): error: './BSP/led.h' file not found
 #include "./BSP/led.h"
          ^~~~~~~~~~~~~
@@ -59,11 +44,16 @@ User/main.c(1): error: './SYSTEM/sys.h' file not found
          ^~~~~~~~~~~~~~~~
 1 error generated.
 compiling main.c...
-User/stm32f4xx_it.c(24): error: 'stm32f4xx_hal.h' file not found
-#include "stm32f4xx_hal.h"
-         ^~~~~~~~~~~~~~~~~
+Drivers/SYSTEM/delay.c(1): error: './SYSTEM/sys.h' file not found
+#include "./SYSTEM/sys.h"
+         ^~~~~~~~~~~~~~~~
 1 error generated.
-compiling stm32f4xx_it.c...
+compiling delay.c...
+Drivers/BSP/Delay.c(1): error: 'stm32f10x.h' file not found
+#include "stm32f10x.h"
+         ^~~~~~~~~~~~~
+1 error generated.
+compiling Delay.c...
 User/system_stm32f4xx.c(49): warning: In file included from...
 C:/_zhangyidaFiles/C03_Applications/Keil_v5/Arm/Packs/Keil/STM32F4xx_DFP/2.17.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(132): warning: In file included from...
 C:/_zhangyidaFiles/C03_Applications/Keil_v5/Arm/Packs/Keil/STM32F4xx_DFP/2.17.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h(166): error: 'core_cm4.h' file not found
@@ -71,6 +61,16 @@ C:/_zhangyidaFiles/C03_Applications/Keil_v5/Arm/Packs/Keil/STM32F4xx_DFP/2.17.1/
          ^~~~~~~~~~~~
 1 error generated.
 compiling system_stm32f4xx.c...
+User/stm32f4xx_it.c(24): error: 'stm32f4xx_hal.h' file not found
+#include "stm32f4xx_hal.h"
+         ^~~~~~~~~~~~~~~~~
+1 error generated.
+compiling stm32f4xx_it.c...
+Drivers/SYSTEM/usart.c(1): error: './SYSTEM/sys.h' file not found
+#include "./SYSTEM/sys.h"
+         ^~~~~~~~~~~~~~~~
+1 error generated.
+compiling usart.c...
 ".\Obj\Template.axf" - 8 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
