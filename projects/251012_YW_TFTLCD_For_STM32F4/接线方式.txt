@@ -1,0 +1,11 @@
+STM32				TFTLCD
+
+PC5				SDO（MISO）
+VCC				LED				
+PC7				SCK
+PC8				SDI（MOSI）
+PC9				DC
+PC10				RESET
+PC11				CS
+GND				GND
+VCC				VCC
